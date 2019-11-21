@@ -1,3 +1,7 @@
 numpy==1.16.4
 opencv-python
 tensorflow==1.14.0
+
+Flask
+google.cloud
+tempfile

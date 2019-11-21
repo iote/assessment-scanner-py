@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "elewa-portal",
+  "private_key_id": "51ae7cdf4017396a94450e3aa4e4d363d79fa23d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDMkXXfH9nkNGe2\nEBSJ3G65JP8wrErWDSYETa3a+qXJBKM4dn6GxFNTA87iU25v0BZpkh+kWZUVLMfZ\nPAcy71jy7cwPvp6he/mLh48Ww5h13mqXqcC+3Eml5ew1Q3DSFh7pbC9nvfni6E1T\nu+dHcMWSnqw50/06PU1lUxKRCzu+mvi+7m3zaS8sE/Yfz052EC4uLn25VujcSOBA\n1E1fTSBI6VQju7LWL+HA0h0NH4gUC6viK4antzx5h3yZAjBEA+ADM72ZhnYcjtBg\n8bICm3vFksI7wCESMbDGLerP8qwl19NWA+QvuUFI4S86irtxyZmIXbNfXfU1GrZm\nyZOd5p17AgMBAAECggEAAq8nXCU1M+y3QIRiyJrgWVba3X79QBtXD273f4e3a1Cb\nDIZmpsGdbyLruhgYTYQAZiQUoX5dbA+ik2PHUmdGBChKe6vVSAXfxwOzjimN3KV/\n1CBWKVQZo5OOrz7Ny2LDWTcrQqQl3SxEuTHnfaCOZfd4B8TKiZwqdAdDPAhpDuuJ\nfB8/Eg09YwvuWQpHUyHBumPgMJWtA8c93N/GBZzjvR8Caqvxy+FAaU5l3oYrncKA\nA6mXVUc9Qg4ELLy/NWbon8zObU67N66ME847Eu3yRG7I/mQfncdXf4XWkT2xCC3G\nIfxRHC1/JiRi7hqPLTTDGfJmlaXGT13HIP3kmeZuQQKBgQDzX/Nbjb9SBhkLEfUO\nJvuQsczOohfkIJ7CUTk+ZZ5JonLC+MCxnrWUIhy969/M3X2P6Ml7f807jYHE7ojH\nyNTjwDmQQeFaQI2OhdxqJncJQx4mHWQrmsxYZPr37X9a0gR48wNgv8X04tr3cW2+\nMcjnq1UPVT1ZWkG+h2p08pfduwKBgQDXLicuKh3LHbhUK/ezKZFD5gM5ybFpY+px\nFk78GvH+F5mZaDLwbX7v6Z2GUmD30NBO6tlxihyqWlLA0bACbrASnKtN6BElF7ia\n9EZJv01ShYtiazc7uzLd2l5oQsOdffGrDLoOzf3VUfC4NAL8FibWGWb7FLdigX2I\nlJQq6khjQQKBgB36vtaTUnL/L0yOzLoOkUSUsl7t1rWSUxwqtzt5dxMpAKwFym7W\n1xVFUncOvEXXLuVwTol5B8YDO24P2CeMFLVtc2nSw7jDZOyejrVAwb8RVoBpdHJu\noidtYQDzb5G3dzeS7+KWHQN6gnCit1sLdO0czOCTpngAR0L6GWIIlC6LAoGAG8OQ\nupwki/iht/qUU0GhxKkA8YvcoESME1tVhaHUZ3yUDP8s02jNYBc8hABNEqyWtBgJ\nRmUTncdZthdYJngxr7UXRU4UKD0PTK8IAqv0RhmFCoXa8pIM1iM+2yUCKGf/rppN\nx2s8vTF9ZccQO4aALE/KwcrCfqtGj0DcfU0NWgECgYEAsW9x91KtrwfdcOOxwpL4\nbov5W5dmsN6b1htqKLC3yFkT/Qd75flfMbdFVC6CyhAMJYBP6bciVcaU7ue4V1Sr\nF30lRgd5TyFVlMWPfClcdLAWjOFebX/IS48Fde0of+HaNa6Uzs2T2KAmSpPrtKyh\njY0tNn5XPR65ZoHRRjXVdlE=\n-----END PRIVATE KEY-----\n",
+  "client_email": "cloud-storage@elewa-portal.iam.gserviceaccount.com",
+  "client_id": "115146576588659344831",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cloud-storage%40elewa-portal.iam.gserviceaccount.com"
+}
