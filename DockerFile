@@ -1,6 +1,6 @@
 #src: https://runnable.com/docker/python/dockerize-your-flask-application
 
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 MAINTAINER Jente Rosseel "jente@elewa.co.ke"
 
