@@ -15,7 +15,7 @@ def is_target_param_id(arg):
 def is_output_param_id(arg):
   return arg == '-o' or arg == '--output-folder'
 
-tf_interpreter = tf.lite.Interpreter(model_path="subs/model/handwriting_read.tflite")
+tf_interpreter = tf.lite.Interpreter(model_path="model/handwriting_read.tflite")
 print('app_started')
 # Execute Script.
 args = input()

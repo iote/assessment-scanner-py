@@ -5,7 +5,7 @@ simplefilter(action='ignore', category=FutureWarning)
 import tensorflow as tf
 
 # pre-load TensforFlow Model
-tf_interpreter = tf.lite.Interpreter(model_path="subs/model/handwriting_read.tflite")
+tf_interpreter = tf.lite.Interpreter(model_path="model/handwriting_read.tflite")
 
 from flask import Flask
 app = Flask(__name__)
