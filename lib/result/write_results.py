@@ -1,12 +1,18 @@
 import json
 import cv2
+import os, sys
 
 # Function that writes the result in a json object
 # Arguments:
 #   1 - Result Array. Of the form [(i, has_value, result_image, x, w, y, h)]
 #   2 - output_dir. Dir to write the images to
-def write(student_filled_box, algo_result, output_dir):
+def write(student_filled_box, algo_result, subj_group, stream, assessment):
+  
+  # Create output Dir - Write permissions for owner / Read for everyone else. No exec permissions.
+  output_dir = '/assessments/' + subj_group + '/' + stream + '/' + 'assessment' 
+  os.mkdir(output_dir, 0644)
 
+  # Prepare for reading
   data = {}
   data['reads'] = len(algo_result);
   results = []
