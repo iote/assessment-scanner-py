@@ -10,7 +10,7 @@ def write(student_filled_box, algo_result, subj_group, stream, assessment):
   
   # Create output Dir - Write permissions for owner / Read for everyone else. No exec permissions.
   output_dir = '/assessments/' + subj_group + '/' + stream + '/' + 'assessment' 
-  os.mkdir(output_dir, 0644)
+  os.mkdir(output_dir, 755)
 
   # Prepare for reading
   data = {}

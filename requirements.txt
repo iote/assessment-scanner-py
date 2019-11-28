@@ -3,5 +3,3 @@ opencv-python
 tensorflow==1.14.0
 
 Flask
-google.cloud
-tempfile

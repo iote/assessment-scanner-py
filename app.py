@@ -7,11 +7,11 @@ import tensorflow as tf
 # pre-load TensforFlow Model
 tf_interpreter = tf.lite.Interpreter(model_path="model/handwriting_read.tflite")
 
-from flask import Flask
+from flask import Flask, request
 app = Flask(__name__)
 
 @app.route('/', methods=["POST"])
-def mark:
+def mark():
   #user_file is the name value in input element
   if request.method == 'POST' and len(request.files) > 0:
     
@@ -27,8 +27,8 @@ def mark:
       return results
     
   # No files to process have been sent.
-  elif:
+  else:
     return 'noop';
 
-if __name == '__main__':
-  app.run(host='0.0.0.0', port='1080') #debug=True, 
+if __name__ == '__main__':
+  app.run() #debug=True, 
