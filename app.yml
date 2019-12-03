@@ -1,0 +1,30 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: elewa-assessment-reader
+  labels:
+    name: elewa-assessment-reader
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: elewa-assessment-reader
+  template:
+    metadata:
+      name: elewa-assessment-reader
+      labels:
+        name: elewa-assessment-reader
+    spec:
+      containers:
+        - name: elewa-assessment-reader
+          image: gcr.io/elewa-portal-production/assessment-reader:v1
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: 256Mi
+            limits:
+              memory: 1024Mi
+          env:
+            - name: DEBUG_MODE
+              value: "1"

@@ -1,23 +1,21 @@
-#src: https://runnable.com/docker/python/dockerize-your-flask-application
-
-FROM ubuntu:18.04
-
-MAINTAINER Jente Rosseel "jente@elewa.co.ke"
-
-RUN apt-get update -y && \
-  apt-get install -y python-pip python-dev
-
-# We copy just the requirements.txt first to leverage Docker cache
-COPY ./requirements.txt /app/requirements.txt
-
-RUN export GOOGLE_APPLICATION_CREDENTIALS="./sec/elewa_portal_cloud_storage_access_key.json"
+FROM python:3.6-jessie
+RUN apt update
 
 WORKDIR /app
+ADD requirements.txt /app/requirements.txt
 
-RUN pip install -r requirements.txt
+RUN pip install -r /app/requirements.txt
 
-COPY . /app
+ADD . /app
 
-ENTRYPOINT [ "python" ]
+ENV PORT 8080
+CMD ["gunicorn", "app:app", "--config=config.py"]
 
-CMD [ "app.py" ]
+# Build for GKE & Register in Docker REgistry
+# --
+# gcloud builds --project elewa-portal-production submit --tag gcr.io/elewa-portal-production/assessment-reader:v1 .
+
+# -- Inside GKE
+# kubectl apply -f app.yaml
+# kubectl expose deployment elewa-assessment-reader --type=LoadBalancer --port 80 --target-port 8080
+# kubectl get services -l name=elewa-assessment-reader

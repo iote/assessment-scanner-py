@@ -7,6 +7,7 @@ import tensorflow as tf
 # pre-load TensforFlow Model
 tf_interpreter = tf.lite.Interpreter(model_path="model/handwriting_read.tflite")
 
+import config
 from flask import Flask, request
 app = Flask(__name__)
 
@@ -31,4 +32,4 @@ def mark():
     return 'noop';
 
 if __name__ == '__main__':
-  app.run() #debug=True, 
+  app.run(host="0.0.0.0", port=config.PORT, debug=config.DEBUG_MODE) #debug=True, 
