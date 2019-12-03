@@ -3,6 +3,7 @@ version: '3'
 services:
   flask:
     image: webapp-flask
+    tty: true
     build:
       context: ./app
       dockerfile: Dockerfile
@@ -10,6 +11,7 @@ services:
       - "assessments:/assessments"
   nginx:
     image: webapp-nginx
+    tty: true
     build:
       context: ./srv
       dockerfile: Dockerfile
