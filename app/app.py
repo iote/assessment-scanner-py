@@ -7,7 +7,6 @@ import tensorflow as tf
 # pre-load TensforFlow Model
 tf_interpreter = tf.lite.Interpreter(model_path="model/handwriting_read.tflite")
 
-import config
 from flask import Flask, request
 app = Flask(__name__)
 
