@@ -7,7 +7,7 @@ services:
       context: ./app
       dockerfile: Dockerfile
     volumes:
-      - "assessments:/"
+      - "assessments:/assessments"
   nginx:
     image: webapp-nginx
     build:
