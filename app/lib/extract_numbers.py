@@ -6,10 +6,10 @@ from lib.extract_boxes import box_extractor, number_extractor, contour_sorter, c
 from lib.result import write_results
 from lib.recognise import recognise_handwriting
 
-def run(img_for_box_extraction_path, subj_group, stream, assessment, tf_interpreter):
+def run(img, subj_group, stream, assessment, tf_interpreter):
 
   # 1) Read the image and invert to white text on black background.
-  (img, img_inverted) = image_inverter.invert(img_for_box_extraction_path)
+  (img, img_inverted) = image_inverter.invert(img)
 
   only_boxes = box_extractor.extract_boxes(img, img_inverted)
 

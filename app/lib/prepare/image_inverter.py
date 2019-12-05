@@ -1,9 +1,9 @@
 import cv2
 import os
 
-def invert(img_path):
+def invert(img):
   # Read the image
-  img = cv2.imread(img_path, 0)
+  # img = cv2.imread(img_path, 0)
   # cv2.imwrite("./_debug/1_read.jpg", img)
   
   #TODO: Rectifiy image for reading photo's instead of scans only.

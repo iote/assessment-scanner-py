@@ -8,8 +8,13 @@ import os, sys
 #   2 - output_dir. Dir to write the images to
 def write(student_filled_box, algo_result, subj_group, stream, assessment):
   
+  print(algo_result, file=sys.stderr)
   # Create output Dir - Write permissions for owner / Read for everyone else. No exec permissions.
-  output_dir = '/assessments/' + subj_group + '/' + stream + '/' + 'assessment' 
+  os.mkdir('assessments', 755)
+  os.mkdir('assessments/' + subj_group, 755)
+  os.mkdir('assessments/' + subj_group + '/' + stream , 755)
+
+  output_dir = 'assessments/' + subj_group + '/' + stream + '/' + 'assessment' 
   os.mkdir(output_dir, 755)
 
   # Prepare for reading
@@ -42,7 +47,9 @@ def write(student_filled_box, algo_result, subj_group, stream, assessment):
     }
 
     if (has_value):
-      output_loc = output_dir + 'num_' + str(i);
+      output_loc = output_dir + '/num_' + str(i);
+
+      print(output_loc, file=sys.stderr)
 
       cv2.imwrite(output_loc + '.png', image)
       cv2.imwrite(output_loc + '_ml.png', result_image)
