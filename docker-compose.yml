@@ -8,7 +8,8 @@ services:
       context: ./app
       dockerfile: Dockerfile
     volumes:
-      - "assessments:/assessments"
+      # - "/Users/zeddy/Desktop/:assessments"
+      - "assessments:/var/lib/elewa"
     ports:
       - 5000:5000
   #nginx:

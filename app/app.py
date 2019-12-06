@@ -24,7 +24,7 @@ def log_request_info():
 @app.route('/', methods=["POST"])
 @cross_origin()
 def mark():
-  print('Hello world!', file=sys.stderr)
+  print('APP.PY: Hit the post route successfully', file=sys.stderr)
   # headers = {"Content-Type": "application/json"}
   # return "Test Worked!"
 
@@ -39,27 +39,24 @@ def mark():
 
     uploaded_files = request.files.getlist("files")
 
+    print('APP.PY: These files going to openCV: ', file=sys.stderr)
     print(uploaded_files, file=sys.stderr)
-
-
     # Process all files
     for file in uploaded_files:
 
       img = cv2.imdecode(np.fromstring(file.read(), np.uint8), 0)
-      res = extract_numbers.run(img, subj_group, stream, assessment, tf_interpreter)
+      res = extract_numbers.run(img, subj_group, stream, assessment, 0, tf_interpreter)
 
       results['1'] = res
     
-    return results
+    print('APP.PY: Finished processing the files successfully. The Result: ', file=sys.stderr)
+    print(results, file=sys.stderr)
+
+    return results['1']
     
   # No files to process have been sent.
   else:
     return 'noop';
-
-@app.route('/hello')
-@cross_origin()
-def hello():
-  return 'hello, this works'
 
 if __name__ == '__main__':
   app.run(host="0.0.0.0", debug=True)
