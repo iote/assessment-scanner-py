@@ -26,7 +26,7 @@ def log_request_info():
 @app.route('/', methods=["POST"])
 @cross_origin()
 def mark():
-  print('APP.PY: Hit the post route successfully', file=sys.stderr)
+  #print('APP.PY: Hit the post route successfully', file=sys.stderr)
   # headers = {"Content-Type": "application/json"}
   # return "Test Worked!"
 
@@ -41,8 +41,8 @@ def mark():
 
     uploaded_files = request.files.getlist("files")
 
-    print('APP.PY: These files going to openCV: ', file=sys.stderr)
-    print(uploaded_files, file=sys.stderr)
+    #print('APP.PY: These files going to openCV: ', file=sys.stderr)
+    #print(uploaded_files, file=sys.stderr)
     # Process all files
 
     for i in range(len(uploaded_files)):
@@ -58,8 +58,8 @@ def mark():
 
     #   results.append(res)
     
-    print('APP.PY: Finished processing the files successfully. The Result: ', file=sys.stderr)
-    print(results, file=sys.stderr)
+    #print('APP.PY: Finished processing the files successfully. The Result: ', file=sys.stderr)
+    #print(results, file=sys.stderr)
 
     return Response(json.dumps(results),  mimetype='application/json')
     

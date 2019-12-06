@@ -8,7 +8,7 @@ import os, sys
 #   2 - output_dir. Dir to write the images to
 def write(student_filled_box, algo_result, subj_group, stream, assessment, sheetn):
 
-  print('WRITE_RESULTS.PY: Starting write', file=sys.stderr)
+  #print('WRITE_RESULTS.PY: Starting write', file=sys.stderr)
   new_subj_group = subj_group.replace('"', "")
   new_stream = stream.replace('"', "")
   new_assessment = assessment.replace('"', "")
@@ -83,6 +83,6 @@ def write(student_filled_box, algo_result, subj_group, stream, assessment, sheet
   f.write(json_result_object)
   f.close()
 
-  print('WRITE_RESULTS.PY: Finished write. RES: ' + output_dir + '/result.json', file=sys.stderr)
+  #print('WRITE_RESULTS.PY: Finished write. RES: ' + output_dir + '/result.json', file=sys.stderr)
 
   return json_result_object
