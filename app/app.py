@@ -1,4 +1,6 @@
 from lib import extract_numbers
+
+import json
 import cv2
 import numpy as np
 import sys
@@ -10,7 +12,7 @@ import tensorflow as tf
 # pre-load TensforFlow Model
 tf_interpreter = tf.lite.Interpreter(model_path="model/handwriting_read.tflite")
 
-from flask import Flask, request, make_response, jsonify
+from flask import Flask, request, make_response, jsonify, Response
 from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
@@ -35,24 +37,31 @@ def mark():
     stream = request.values.get("streamId");
     assessment = request.values.get("assessmentId");
 
-    results = {}
+    results = []
 
     uploaded_files = request.files.getlist("files")
 
     print('APP.PY: These files going to openCV: ', file=sys.stderr)
     print(uploaded_files, file=sys.stderr)
     # Process all files
-    for file in uploaded_files:
 
-      img = cv2.imdecode(np.fromstring(file.read(), np.uint8), 0)
-      res = extract_numbers.run(img, subj_group, stream, assessment, 0, tf_interpreter)
+    for i in range(len(uploaded_files)):
+      img = cv2.imdecode(np.fromstring(uploaded_files[i].read(), np.uint8), 0)
+      res = extract_numbers.run(img, subj_group, stream, assessment, i, tf_interpreter)
 
-      results['1'] = res
+      results.append(res)
+
+    # for file in uploaded_files:
+
+    #   img = cv2.imdecode(np.fromstring(file.read(), np.uint8), 0)
+    #   res = extract_numbers.run(img, subj_group, stream, assessment, 0, tf_interpreter)
+
+    #   results.append(res)
     
     print('APP.PY: Finished processing the files successfully. The Result: ', file=sys.stderr)
     print(results, file=sys.stderr)
 
-    return results['1']
+    return Response(json.dumps(results),  mimetype='application/json')
     
   # No files to process have been sent.
   else:
