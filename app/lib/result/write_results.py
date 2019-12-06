@@ -25,7 +25,9 @@ def write(student_filled_box, algo_result, subj_group, stream, assessment, sheet
 
   # output_dir = 'assessments/' + subj_group + '/' + stream + '/' + 'assessment' 
 
-  os.makedirs(output_dir, 755)
+  # Check if directory exists to prevent FileExistsError - If it exists, will be overwritten by imwrite below
+  if not os.path.exists(output_dir):
+    os.makedirs(output_dir, 755)
 
   # Prepare for reading
   data = {}
