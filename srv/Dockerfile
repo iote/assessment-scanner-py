@@ -1,3 +1,5 @@
+# https://medium.com/@smirnov.am/running-flask-in-production-with-docker-1932c88f14d0
+
 # Dockerfile-nginx
 FROM nginx:latest
 # Nginx will listen on this port

@@ -8,21 +8,21 @@ services:
       context: ./app
       dockerfile: Dockerfile
     volumes:
-      # - "/Users/zeddy/Desktop/:assessments"
-      - "assessments:/var/lib/elewa"
+      - "assessments:/assessments"
+  # Frontend Server (Ingress)
+  nginx:
+    image: webapp-nginx
+    tty: true
+    build:
+      context: ./srv
+      dockerfile: Dockerfile
     ports:
-      - 5000:5000
-  #nginx:
-  #  image: webapp-nginx
-  #  build:
-  #    context: ./srv
-  #    dockerfile: Dockerfile
-  #  ports:
-  #    - 5000:80
-  #  volumes:
-  #    - "assessments:/usr/share/nginx/html"
-  #  depends_on:
-  #    - flask
+      - 80:80
+      - 443:443
+    volumes:
+      - "assessments:/var/www/html"
+    depends_on:
+      - flask
 
 volumes:
   assessments:
