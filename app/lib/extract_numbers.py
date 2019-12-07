@@ -33,8 +33,6 @@ def run(img, subj_group, stream, assessment, sheetn, tf_interpreter):
   result_ml = recognise_handwriting.recognise(result, tf_interpreter)
   
   # Create Result Directory
-
-
   result_loc = write_results.write(student_filled_box, result_ml, subj_group, stream, assessment, sheetn)
 
   return result_loc
