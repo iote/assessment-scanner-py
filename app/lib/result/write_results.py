@@ -6,7 +6,7 @@ import os, sys
 # Arguments:
 #   1 - Result Array. Of the form [(i, has_value, result_image, x, w, y, h)]
 #   2 - output_dir. Dir to write the images to
-def write(student_filled_box, algo_result, subj_group, stream, assessment, sheetn):
+def write(student_filled_box, algo_result, subj_group, stream, assessment, sheetn, base_i):
 
   #print('WRITE_RESULTS.PY: Starting write', file=sys.stderr)
   new_subj_group = subj_group.replace('"', "")
@@ -37,7 +37,7 @@ def write(student_filled_box, algo_result, subj_group, stream, assessment, sheet
   # Structure of result (i, has_value, result_image, x, w, y, h, value?)
   for index, result in enumerate(algo_result):
 
-    i = result[0]
+    i = base_i + result[0]
     has_value    = result[1]
     image        = result[2]
     result_image = result[3]
