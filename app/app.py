@@ -36,7 +36,7 @@ def mark():
     subj_group = request.values.get("subjectGroupId");
     stream = request.values.get("streamId");
     assessment = request.values.get("assessmentId");
-    base_i = parseInt(request.values.get("baseIndex"));
+    base_i = int(request.values.get("baseIndex"));
 
     results = []
 
