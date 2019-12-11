@@ -17,7 +17,7 @@ def write(student_filled_box, algo_result, subj_group, stream, assessment, sheet
   path_1 = os.path.join('assessments', new_subj_group)
   path_2 = os.path.join(path_1, new_stream)
   path_3 = os.path.join(path_2, new_assessment)
-  output_dir = os.path.join(path_3, str(sheetn))
+  output_dir = os.path.join(path_3, str(sheetn + base_i))
 
   # os.mkdir('assessments', 755)
   # os.mkdir('assessments/' + subj_group, 755)
@@ -37,7 +37,7 @@ def write(student_filled_box, algo_result, subj_group, stream, assessment, sheet
   # Structure of result (i, has_value, result_image, x, w, y, h, value?)
   for index, result in enumerate(algo_result):
 
-    i = base_i + result[0]
+    i = result[0]
     has_value    = result[1]
     image        = result[2]
     result_image = result[3]
