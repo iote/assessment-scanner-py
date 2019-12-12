@@ -35,7 +35,7 @@ def write(student_filled_box, algo_result, subj_group, stream, assessment, sheet
   data['reads'] = len(algo_result);
   results = []
 
-  spritesheet = [];
+  spritesheet = 0;
 
   # Structure of result (i, has_value, result_image, ml_image, x, w, y, h, value?)
   for index, result in enumerate(algo_result):
@@ -72,20 +72,25 @@ def write(student_filled_box, algo_result, subj_group, stream, assessment, sheet
       value['value'] = result[8]
 
       # Add to spritesheet
-      spritesheet = np.concatenate((spritesheet, result_image), axis=0)
+      if (not isinstance(spritesheet, np.ndarray)):
+        spritesheet = image
+      else:
+        spritesheet = np.concatenate((spritesheet, image), axis=1)
 
     results.append(value)
 
   data['results'] = results
 
+  data['spritesheet'] = output_dir + '/total_overview.png'
+  cv2.imwrite(data['spritesheet'], spritesheet)
+
   student_overview_loc = output_dir + '/student_overview.png'
+  data['overview'] = student_overview_loc
   cv2.imwrite(student_overview_loc, student_filled_box)
 
   # Add overview to spritesheet
-  spritesheet = np.concatenate((spritesheet, student_filled_box), axis=1)
+  #spritesheet = np.concatenate((spritesheet, student_filled_box), axis=1)
 
-  data['overview'] = student_overview_loc
-  data['spritesheet'] = output_dir + '/total_overview.png'
   data['result_loc'] = output_dir + '/result.json'
   json_result_object = json.dumps(data)
 
