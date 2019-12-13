@@ -1,12 +1,13 @@
 import json
 import cv2
 import os, sys
+import numpy as np
 
 # Function that writes the result in a json object
 # Arguments:
 #   1 - Result Array. Of the form [(i, has_value, result_image, x, w, y, h)]
 #   2 - output_dir. Dir to write the images to
-def write(student_filled_box, algo_result, subj_group, stream, assessment, sheetn):
+def write(student_filled_box, algo_result, subj_group, stream, assessment, sheetn, base_i):
 
   #print('WRITE_RESULTS.PY: Starting write', file=sys.stderr)
   new_subj_group = subj_group.replace('"', "")
@@ -17,7 +18,7 @@ def write(student_filled_box, algo_result, subj_group, stream, assessment, sheet
   path_1 = os.path.join('assessments', new_subj_group)
   path_2 = os.path.join(path_1, new_stream)
   path_3 = os.path.join(path_2, new_assessment)
-  output_dir = os.path.join(path_3, str(sheetn))
+  output_dir = os.path.join(path_3, str(sheetn + base_i))
 
   # os.mkdir('assessments', 755)
   # os.mkdir('assessments/' + subj_group, 755)
@@ -34,7 +35,9 @@ def write(student_filled_box, algo_result, subj_group, stream, assessment, sheet
   data['reads'] = len(algo_result);
   results = []
 
-  # Structure of result (i, has_value, result_image, x, w, y, h, value?)
+  spritesheet = 0;
+
+  # Structure of result (i, has_value, result_image, ml_image, x, w, y, h, value?)
   for index, result in enumerate(algo_result):
 
     i = result[0]
@@ -45,7 +48,7 @@ def write(student_filled_box, algo_result, subj_group, stream, assessment, sheet
     w            = result[5]
     y            = result[6]
     h            = result[7]
-
+    
     value = {
         'index': i,
 
@@ -68,13 +71,23 @@ def write(student_filled_box, algo_result, subj_group, stream, assessment, sheet
 
       value['value'] = result[8]
 
+      # Add to spritesheet
+      if (not isinstance(spritesheet, np.ndarray)):
+        spritesheet = image
+      else:
+        spritesheet = np.concatenate((spritesheet, image), axis=1)
+
     results.append(value)
 
   data['results'] = results
 
+  data['spritesheet'] = output_dir + '/total_overview.png'
+  cv2.imwrite(data['spritesheet'], spritesheet)
+
   student_overview_loc = output_dir + '/student_overview.png'
-  cv2.imwrite(student_overview_loc, student_filled_box)
   data['overview'] = student_overview_loc
+  cv2.imwrite(student_overview_loc, student_filled_box)
+
   data['result_loc'] = output_dir + '/result.json'
   json_result_object = json.dumps(data)
 

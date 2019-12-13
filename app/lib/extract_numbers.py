@@ -6,7 +6,7 @@ from lib.extract_boxes import box_extractor, number_extractor, contour_sorter, c
 from lib.result import write_results
 from lib.recognise import recognise_handwriting
 
-def run(img, subj_group, stream, assessment, sheetn, tf_interpreter):
+def run(img, subj_group, stream, assessment, sheetn, tf_interpreter, base_i):
 
   # 1) Read the image and invert to white text on black background.
   (img, img_inverted) = image_inverter.invert(img)
@@ -33,6 +33,6 @@ def run(img, subj_group, stream, assessment, sheetn, tf_interpreter):
   result_ml = recognise_handwriting.recognise(result, tf_interpreter)
   
   # Create Result Directory
-  result_loc = write_results.write(student_filled_box, result_ml, subj_group, stream, assessment, sheetn)
+  result_loc = write_results.write(student_filled_box, result_ml, subj_group, stream, assessment, sheetn, base_i)
 
   return result_loc

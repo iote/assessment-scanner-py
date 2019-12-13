@@ -46,8 +46,8 @@ def prepare_for_ml(img, x, w, y, h, i):
     #Invert the image (black background)
               # Warning: Set is trained on 28x28px images yet inference expects 224x224 images.
               # Set this parameter to 28x28 if you are exporting for training purposes.
-    resized = cv2.resize(result, (224, 224))
-    inverted = 255 - cv2.threshold(resized, 180, 255, cv2.THRESH_BINARY)[1]
+    squared_centered = cv2.resize(result, (224, 224))
+    inverted = 255 - cv2.threshold(squared_centered, 180, 255, cv2.THRESH_BINARY)[1]
     # cv2.imwrite("./_debug/inverted_test_" + str(i) + ".jpg", inverted)
     result = inverted
 

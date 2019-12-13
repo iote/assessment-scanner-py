@@ -36,6 +36,7 @@ def mark():
     subj_group = request.values.get("subjectGroupId");
     stream = request.values.get("streamId");
     assessment = request.values.get("assessmentId");
+    base_i = int(request.values.get("baseIndex"));
 
     results = []
 
@@ -47,7 +48,7 @@ def mark():
 
     for i in range(len(uploaded_files)):
       img = cv2.imdecode(np.fromstring(uploaded_files[i].read(), np.uint8), 0)
-      res = extract_numbers.run(img, subj_group, stream, assessment, i, tf_interpreter)
+      res = extract_numbers.run(img, subj_group, stream, assessment, i, tf_interpreter, base_i)
 
       results.append(res)
 
