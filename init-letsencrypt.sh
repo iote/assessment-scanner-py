@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(assessment.wns.elewa.co.ke www.assessment.wns.elewa.co.ke)
+domains=(assessment.wns.elewa.co.ke)
 rsa_key_size=4096
 data_path="./data/certbot"
 email="zeddy@elewa.co.ke" # Adding a valid address is strongly recommended
