@@ -88,9 +88,6 @@ def write(student_filled_box, algo_result, subj_group, stream, assessment, sheet
   data['overview'] = student_overview_loc
   cv2.imwrite(student_overview_loc, student_filled_box)
 
-  # Add overview to spritesheet
-  #spritesheet = np.concatenate((spritesheet, student_filled_box), axis=1)
-
   data['result_loc'] = output_dir + '/result.json'
   json_result_object = json.dumps(data)
 
