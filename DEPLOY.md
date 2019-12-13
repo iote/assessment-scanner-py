@@ -42,17 +42,17 @@ Example (To deploy a single file – init-letsencrypt.sh):
 `sudo gcloud compute scp ./init-letsencrypt.sh  wns-elewa-app:/home/JRosseel/build/elewa-assessment-ocr`
 
 2.	SSH into the appropriate VM instance on GCP to docker-compose up. 
-    I.	Log into GCP using your work email and click on console. 
-    II.	Click on the menu icon on the top left. 
-    III.	Navigate to Compute Engine > VM instances
-    IV.	SSH into the appropriate VM instance. 
-    V.	Inside the online console, CD into the directory where you pushed your code to.
+    1.	Log into GCP using your work email and click on console. 
+    2.	Click on the menu icon on the top left. 
+    3.	Navigate to Compute Engine > VM instances
+    4.	SSH into the appropriate VM instance. 
+    5.	Inside the online console, CD into the directory where you pushed your code to.
     `cd /home/JRossel/build/[name of the project]`
 
     In the above example that would be: 
     `cd /home/JRossel/build/elewa-assessments-ocr`
 
-    VI.	Run the command: `docker-compose up --build`
+    6.	Run the command: `docker-compose up --build`
 
 If everything went well, your new changes should have taken effect. 
 
@@ -65,9 +65,9 @@ In the process of deployment, you may run into some issues. We’ve tried to doc
 
 2.	A gcloud scp error – If you experience issues pushing the project code onto gcp, this may be as a result of a couple of things: 
 
-i.	You’re Google Cloud SDK may not be configured correctly. 
-ii.	You do not have the right permissions to push to Elewa GCP servers. 
-iii.	You are probably trying to push to the wrong project. 
+    1.	You’re Google Cloud SDK may not be configured correctly. 
+    2.	You do not have the right permissions to push to Elewa GCP servers. 
+    3.	You are probably trying to push to the wrong project. 
 
 
 ## Extra Notes
