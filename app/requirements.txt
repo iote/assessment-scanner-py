@@ -1,6 +1,6 @@
 numpy==1.16.4
 opencv-python
-tensorflow==1.14.0
+tensorflow
 
 Click==7.0
 Flask==1.0.2
